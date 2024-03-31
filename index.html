@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <title>Advice generator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    footer {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    footer a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    body {
+      background-color: brown;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .container {
+      background-color: cadetblue;
+      width: 500px;
+      height: 500px;
+      box-sizing: border-box;
+      margin: 20px;
+
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <p id="advice">Loading....</p><!-- Advice ID goes here -->
+
+
+
+    <img id="image
+  " src="images/pattern-divider-desktop.svg"><br>
+    <button id="adviceButton"><img src="images/new (1).png"></button>
+  </div>
+  <footer>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Bagorogile Mphaka</a>.
+  </footer>
+
+
+  <script>
+
+    const getAdvice = function getAdvice() {
+
+      const adviceElement = document.getElementById("advice");
+
+      adviceElement.innerHTML = "";
+      fetch("https://api.adviceslip.com/advice")
+        .then(response => response.json())
+        .then(data => {
+          adviceElement.innerHTML = `<h1> Advice no ${data.slip.id}</h1>
+<blockquote>"${data.slip.advice}"</blockquote>`;
+
+        })
+        .catch(err => {
+          adviceElement.innerHTML = `<p>${err.message}.</p>`;
+        });
+    };
+    document.getElementById("adviceButton").addEventListener("click", getAdvice);
+
+  </script>
+</body>
+
+</html>
