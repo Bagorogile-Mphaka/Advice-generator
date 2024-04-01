@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+
 
   <title>Advice generator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
   <style>
     footer {
       font-size: 11px;
@@ -17,10 +17,12 @@
 
     footer a {
       color: hsl(228, 45%, 44%);
+      position: fixed;
+      bottom: 0;
     }
 
     body {
-      background-color: brown;
+      background-image: url(images/pexels-pixabay-326055.jpg);
     }
 
     p {
@@ -33,11 +35,14 @@
     }
 
     .container {
-      background-color: cadetblue;
+      background: linear-gradient(to right, blue, pink);
       width: 500px;
-      height: 500px;
+      height: 200px;
       box-sizing: border-box;
-      margin: 20px;
+      margin: 0 auto;
+      position: relative;
+      margin-top: 220px;
+      border: 5px solid black;
 
     }
 
@@ -45,6 +50,31 @@
       display: block;
       margin: 0 auto;
     }
+/* Breakpoint for smaller screens */
+@media screen and (max-width: 600px) {
+      .container {
+        width: 90%;
+        height: auto;
+        margin-top: 20px;
+        padding: 10px;
+      }
+    }
+
+    /* Breakpoint for medium screens */
+    @media screen and (min-width: 601px) and (max-width: 900px) {
+      .container {
+        width: 70%;
+        margin-top: 100px;
+      }
+    }
+
+    /* Breakpoint for larger screens */
+    @media screen and (min-width: 901px) {
+      .container {
+        width: 50%;
+      }
+    }
+    
   </style>
 </head>
 
@@ -52,19 +82,12 @@
 
 
   <div class="container">
-    <p id="advice">Loading....</p><!-- Advice ID goes here -->
-
-
+    <p id="advice">Loading....</p>
 
     <img id="image
   " src="images/pattern-divider-desktop.svg"><br>
     <button id="adviceButton"><img src="images/new (1).png"></button>
   </div>
-  <footer>
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Bagorogile Mphaka</a>.
-  </footer>
-
 
   <script>
 
@@ -90,3 +113,10 @@
 </body>
 
 </html>
+
+   
+     
+
+    
+        
+
